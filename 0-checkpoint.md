@@ -1,25 +1,20 @@
 # Project Checkpoint
+# Project Title: Analyzing User Reviews and Business Trends with PostgreSQL and MongoDB
 
-[list your team members here.]
-
-# Final Report [Optionally Give it a title.]
-
-[list your team members here.]
-
-This document is an _outline_. It has all the components as required in the spec, but you may wish to modify it to suit your team's project.
+Sierra Dahiyat, Sophia Ladyzhensky, Ananya Chawla, Aidana Jakulina
 
 ## Dataset Selection
 
-* Describe the dataset
-* If you chose your own dataset, show that it meets the requirements.
-* Describe any sampling or truncation plans
-* Show a draft schema (either an ER diagram )
+The Yelp dataset comprises multiple JSON files, including yelp_academic_dataset_business.json, which provides detailed information about businesses with attributes such as business_id (primary key), name, address, city, review_count, and categories. Another important file, yelp_academic_dataset_review.json, contains user reviews for these businesses, including a primary key, review_id, and a foreign key, business_id, linking to the business dataset. Additionally, the dataset includes yelp_academic_dataset_user.json, which provides user-specific details with the primary key user_id. Finally, the dataset also features yelp_academic_dataset_checkin.json and yelp_academic_dataset_tip.json, both of which reference business_id and user_id as foreign keys.
+Since the full Yelp academic dataset is approximately 10GB—exceeding the size limit for this project—we plan to reduce it to 1GB through sampling. This will involve selecting a random subset of 10,000 businesses and including only the related users and their reviews. In doing so, we will focus the data on a specific subset of businesses while preserving the relationships between users, businesses, and reviews. With an average of 100 reviews per business, this approach will yield approximately 1 million records, satisfying the requirements for dataset size and multiple foreign key relationships.
+To sample the data, we will randomly select 10,000 businesses and filter the reviews and users to include only those associated with the selected businesses.
+
+[ER Diagram]([url](https://dbdiagram.io/d/6743c567e9daa85aca8dd775))
 
 ## System and Database Setup
 
 * Describe how you loaded data into Postgres, e.g. include code snippets, diagrams, etc.
 * Are you using DataHub or your local computer(s) for compute resources? Are you using that same setup to store your database, or are you using another (cloud) system?
-
 
 ## PostgreSQL Tasks and Queries
 
@@ -37,7 +32,21 @@ This document is an _outline_. It has all the components as required in the spec
 
 ## Future Plan (Checkpoint Only)
 
-A plan for the non-relational parts of the project. A paragraph or two is fine.
+We plan to use MongoDB as our non-relational database system due to its ability to handle semi-structured data like JSON. MongoDB will allow us to store the dataset with minimal transformations, maintaining the natural structure of the data.
 
-* What other database do you plan to use?
-* How might you plan to compare Postgres to this other database?
+Types of Queries to Cover
+Top-Rated Businesses by City:
+Retrieve the best-rated businesses in a specific city using MongoDB aggregations.
+Most Active Users:
+Identify users with the highest number of reviews.
+Top Categories by Review Volume:
+Analyze the most popular business categories by aggregating reviews.
+Business-Specific Reviews:
+Filter reviews for a specific business, sorted by date or rating.
+Comparison Plan
+We will compare PostgreSQL and MongoDB on:
+
+Performance- Query execution times for filtering and aggregations.
+Usability - Ease of writing and running queries.
+Flexibility- Handling semi-structured data (MongoDB) vs. structured schema (PostgreSQL).
+This comparison will help us determine which system is more suitable for specific use cases, such as analytical tasks or real-time querying.
