@@ -34,19 +34,15 @@ To sample the data, we will randomly select 10,000 businesses and filter the rev
 
 We plan to use MongoDB as our non-relational database system due to its ability to handle semi-structured data like JSON. MongoDB will allow us to store the dataset with minimal transformations, maintaining the natural structure of the data.
 
-Types of Queries to Cover
-Top-Rated Businesses by City:
-Retrieve the best-rated businesses in a specific city using MongoDB aggregations.
-Most Active Users:
-Identify users with the highest number of reviews.
-Top Categories by Review Volume:
-Analyze the most popular business categories by aggregating reviews.
-Business-Specific Reviews:
-Filter reviews for a specific business, sorted by date or rating.
-Comparison Plan
+Examples of queries we would be covering: 
+Top-Rated Businesses by City
+Most Active Users
+Top Categories by Review Volume
+Business-Specific Reviews
+
 We will compare PostgreSQL and MongoDB on:
 
-Performance- Query execution times for filtering and aggregations.
-Usability - Ease of writing and running queries.
-Flexibility- Handling semi-structured data (MongoDB) vs. structured schema (PostgreSQL).
+1. Performance- Query execution times for filtering and aggregations.
+2. Usability - Ease of writing and running queries.
+3. Flexibility- Handling semi-structured data (MongoDB) vs. structured schema (PostgreSQL).
 This comparison will help us determine which system is more suitable for specific use cases, such as analytical tasks or real-time querying.
