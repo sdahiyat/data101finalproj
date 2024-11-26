@@ -24,6 +24,7 @@ To sample the data, we will randomly select 10,000 businesses and filter the rev
 
 (For each query)
 
+
 * Describe the problem
 * Explain why this is a reasonable solution
 * Evaluate it's performance
