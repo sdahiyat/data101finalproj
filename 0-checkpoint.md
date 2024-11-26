@@ -29,6 +29,7 @@ This document is an _outline_. It has all the components as required in the spec
 
 (For each query)
 
+
 * Describe the problem
 * Explain why this is a reasonable solution
 * Evaluate it's performance
